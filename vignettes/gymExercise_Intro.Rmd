@@ -1,0 +1,45 @@
+---
+title: "Introduction to gymExercise"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to gymExercise}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This is an introduction to my package, "gymExercise". Exact details of the package's purpose and it's functions can be found in the ReadMe. Here, examples of each function will be shown, demonstrating their required input and intended output, which should hopefully demonstrate it's usefulness.
+
+```{r setup}
+library(gymExercise)
+```
+
+recommendBMI function:
+
+```{r}
+recommendBMI()
+```
+
+targetBMI function:
+
+```{r}
+targetBMI()
+```
+
+exerciseGraphs function:
+
+```{r}
+exerciseGraphs()
+```
+
+exerciseReg function:
+
+```{r}
+exerciseReg()
+```

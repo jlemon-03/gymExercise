@@ -3,12 +3,19 @@ Title: Gym Exercise Routines
 Version: 0.0.0.9000
 Authors@R: 
     person("Jackson", "Lemon", , "jlemon1@usf.edu", role = c("aut", "cre"))
-Description: This package is made of custom functions for working with a dataset that contains the information of gym members, such as their age, height and weight, exercise type, exercise schedule, and BMI. The included functions can be useful for gym members, personal trainers, or owners. For example, one function allows the user to select an observation in the dataset(ie. one person in it)and determines what that person's optimal BMI is given their gender, weight and height, then shows them the exercise routine (schedule and type of workout) of other observations(people) in the data who have BMI's similar to the user's target, to aid them in developing a routine to reach their goal. Other functions provide similar help with the development of a workout routine, as well as more general analytical looks at the member's current routines, such as functions that create graphs showing trends in the data, or regression models that can be used to possibly predict someone's BMI given an inputted workout routine or vice versa.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Description: This package is made of custom functions for working with a dataset that contains the information of gym members, such as their age, height and weight, exercise type, exercise schedule, and BMI. The included functions can help put together workout routines for gym members, personal trainers, or gym owners. For example, one function allows the user to select an observation in the dataset(ie. one person in it), then shows them the exercise routine (schedule and type of workout) of other observations(people) in the data who have BMI's similar to the user's, to help tailor a routine to them, as well as the routine of people within the healthy BMI range to maybe act as a goal. Other functions provide similar help with the development of an exercise routine, as well as more general analytical looks at the member's current routines, such as functions that create graphs showing trends in the data, or regression models that can be used to possibly predict someone's BMI given an inputted workout routine or vice versa.
+License: use_gpl3_license()
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    gridExtra
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

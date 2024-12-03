@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is an introduction to my package, "gymExercise". Exact details of the package's purpose and it's functions can be found in the ReadMe. Here, examples of each function will be shown, demonstrating their required input and intended output, which should hopefully demonstrate it's usefulness.
+This is an introduction to my package, "gymExercise". Exact details of the package's purpose and it's functions can be found in the ReadMe. Here, the defaults of each function can be run, demonstrating their required input and intended output, which should hopefully demonstrate it's usefulness in a safe environment.
 
 ```{r setup}
 library(gymExercise)

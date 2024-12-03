@@ -1,0 +1,115 @@
+"Below, all functions will be described and accompanied by examples of their potential inputs and desired outputs.
+Further help be found by typing ?function_name with the package loaded in RStudio, as each functions is fully documented there."
+
+Function 1 - recommendBMI()
+"The purpose of this function is help guide someone -- whether it be a gym member, owner, or personal trainer -- showing them the exercise routines of other members at either their current or target BMI. It does this by taking in the input of a numeric value from 1-973 (the number of observations in the data set) and uses it as an index to select an observation. It then classifies the member into a BMI range, and shows them the exercise routines of other members in said range, allowing the user to see what routines similar to that person tend to use. Finally, it takes in the members age, weight and height and uses them to find people in the healthy BMI range with similar physical stature, showing their exercise routines in an attempt to guide the member towards a healthier BMI. Below is an example of it being run with the default argument of 1, ie. the first member."
+Example Input: recommendBMI()
+Output:
+[1] "With a BMI of: 30.2, this member is class one obese"
+[1] "These members have a similar BMI to this member:"
+    Age Gender Weight.kg Height.m Max_BPM Avg_BPM Resting_BPM Session_Duration.hours Calories_Burned Workout_Type Fat_Percentage Water_Intake.liters Workout_Frequency.daysPerWeek Experience_Level BMI Workout_Hours.Weekly
+1    56   Male      88.3     1.71     180     157          60                   1.69            1313 Yoga           12.6                 3.5                             4                3         30.20        6.76
+10   28   Male     101.8     1.84     169     136          64                   1.08             808 Cardio           29.7                 2.7                             3                1       30.07        3.24
+95   22   Male     102.6     1.84     163     153          65                   1.25            1052 Strength           20.5                 2.7                             3                2     30.30        3.75
+142  30 Female      79.2     1.62     181     166          66                   1.26            1046 Cardio           28.0                 2.5                             4                2       30.18        5.04
+171  59   Male      89.4     1.72     188     152          67                   1.08             813 Yoga           24.5                 3.2                             3                1         30.22        3.24
+285  34 Female      74.2     1.57     178     158          52                   1.47            1161 Cardio           32.7                 2.4                             3                1       30.10        4.41
+331  49   Male      85.0     1.68     197     163          74                   1.82            1468 HIIT           11.3                 3.5                             4                3         30.12        7.28
+354  18 Female      72.7     1.55     172     125          56                   0.84             525 Cardio           29.8                 2.0                             3                1       30.26        2.52
+573  36   Male      88.0     1.71     185     160          73                   1.87            1646 HIIT           12.0                 3.5                             5                3         30.09        9.35
+889  54 Female      70.1     1.52     180     139          65                   0.76             475 HIIT           26.6                 2.1                             2                1         30.34        1.52
+912  41   Male     101.1     1.83     160     162          66                   0.79             634 Yoga           28.6                 3.2                             2                1         30.19        1.58
+
+912                 1.58
+[1] "These members have a BMI in the healthy range, with similar physical measurements as this member. Consider using them as a guide for how to reach a healthy BMI:"
+    Age Gender Weight.kg Height.m Max_BPM Avg_BPM Resting_BPM Session_Duration.hours Calories_Burned Workout_Type Fat_Percentage Water_Intake.liters Workout_Frequency.daysPerWeek Experience_Level   BMI
+29   45   Male      84.9     1.86     186     136          66                   1.64            1104         HIIT           14.2                 3.5                             5                3 24.54                 8.20
+48   25   Male      88.1     1.95     182     131          68                   1.41            1016       Cardio           22.7                 3.0                             2                1 23.17                 2.82
+108  54   Male      86.0     1.93     171     163          51                   1.74            1404     Strength           12.9                 3.5                             5                3 23.09                 8.70
+114  18   Male      87.6     1.93     161     139          72                   1.72            1315         HIIT           11.9                 3.5                             4                3 23.52                 6.88
+121  43   Male      82.7     1.85     187     142          50                   1.22             858         Yoga           28.2                 3.1                             4                2 24.16                 4.88
+130  30   Male      85.3     1.95     160     155          68                   1.61            1373         Yoga           10.4                 3.5                             5                3 22.43                 8.05
+133  49   Male      82.8     1.95     183     159          73                   1.91            1503         Yoga           14.3                 3.5                             5                3 21.78                 9.55
+136  54   Male      86.1     1.95     195     140          64                   1.17             811         Yoga           27.9                 3.4                             2                1 22.64                 2.34
+141  53   Male      94.1     1.95     177     138          50                   0.89             608         HIIT           28.6                 3.5                             3                1 24.75                 2.67
+165  23   Male      80.9     1.80     178     126          59                   1.55            1074       Cardio           10.7                 3.5                             4                3 24.97                 6.20
+173  32   Male      87.9     1.88     173     143          64                   1.52            1195       Cardio           11.6                 3.5                             5                3 24.87                 7.60
+182  54   Male      83.6     1.86     168     142          56                   1.54            1082         HIIT           12.4                 3.5                             5                3 24.16                 7.70
+210  26   Male      87.1     1.87     173     132          58                   1.71            1241         Yoga           11.2                 3.5                             4                3 24.91                 6.84
+222  49   Male      82.1     1.86     162     160          64                   1.87            1481     Strength           14.2                 3.5                             4                3 23.73                 7.48
+224  58   Male      82.2     1.87     171     143          55                   1.57            1111         HIIT           10.7                 3.5                             4                3 23.51                 6.28
+226  57   Male      81.4     1.86     162     145          70                   1.80            1292       Cardio           12.0                 3.5                             5                3 23.53                 9.00
+290  47   Male      82.1     1.84     185     136          65                   1.37             922     Strength           24.4                 3.4                             4                2 24.25                 5.48
+308  47   Male      84.8     1.86     187     129          63                   1.85            1181         HIIT           14.4                 3.5                             5                3 24.51                 9.25
+392  43   Male      82.9     1.95     181     160          70                   1.90            1505       Cardio           12.9                 3.5                             5                3 21.80                 9.50
+427  56   Male      82.5     1.87     187     124          74                   1.51             927         Yoga           13.2                 3.5                             5                3 23.59                 7.55
+439  36   Male      84.0     1.94     168     123          50                   1.80            1218         HIIT           11.2                 3.5                             5                3 22.32                 9.00
+443  21   Male      80.9     1.90     194     137          55                   1.80            1356         Yoga           11.7                 3.5                             4                3 22.41                 7.20
+458  29   Male      88.1     1.93     186     143          66                   1.88            1479       Cardio           11.1                 3.5                             5                3 23.65                 9.40
+497  49   Male      82.3     1.84     192     146          71                   1.29             932     Strength           28.4                 3.4                             4                2 24.31                 5.16
+498  41   Male      81.6     1.87     167     128          59                   1.87            1185         HIIT           10.2                 3.5                             5                3 23.33                 9.35
+514  36   Male      85.4     1.88     195     137          60                   1.98            1492         Yoga           13.5                 3.5                             5                3 24.16                 9.90
+530  42   Male      88.4     1.93     188     158          65                   1.68            1314         Yoga           12.4                 3.5                             4                3 23.73                 6.72
+558  22   Male      86.2     1.90     186     128          58                   1.91            1345     Strength           11.7                 3.5                             5                3 23.88                 9.55
+565  39   Male      85.3     1.89     163     140          61                   0.77             593     Strength           27.6                 3.6                             2                1 23.88                 1.54
+611  18   Male      82.3     1.84     190     148          66                   1.73            1408         HIIT           13.3                 3.5                             5                3 24.31                 8.65
+616  29   Male      88.0     1.89     199     137          54                   1.75            1319       Cardio           13.3                 3.5                             5                3 24.64                 8.75
+618  49   Male      83.7     1.87     183     158          53                   1.29            1009         HIIT           23.9                 2.3                             4                2 23.94                 5.16
+621  55   Male      87.5     1.88     191     134          73                   1.19             789         Yoga           27.2                 2.6                             4                2 24.76                 4.76
+639  37   Male      88.8     1.95     189     135          66                   1.58            1173         Yoga           10.3                 3.5                             5                3 23.35                 7.90
+670  23   Male      81.4     1.85     194     150          74                   1.60            1320       Cardio           12.4                 3.5                             4                3 23.78                 6.40
+693  49   Male      81.4     1.83     167     125          73                   1.98            1225         Yoga           13.6                 3.5                             5                3 24.31                 9.90
+701  20   Male      92.3     1.94     176     131          71                   1.14             821         HIIT           24.3                 2.1                             3                2 24.52                 3.42
+831  25   Male      81.7     1.95     188     136          74                   1.94            1451         Yoga           13.8                 3.5                             4                3 21.49                 7.76
+893  20   Male      85.7     1.92     172     136          58                   1.72            1287       Cardio           10.5                 3.5                             5                3 23.25                 8.60
+911  32   Male      89.8     1.92     199     168          67                   1.93            1783     Strength           10.6                 3.5                             4                3 24.36                 7.72
+914  52   Male      84.8     1.85     189     152          50                   1.19             895       Cardio           23.4                 3.2                             2                1 24.78                 2.38
+967  23   Male      87.3     1.91     164     129          58                   1.87            1327         HIIT           11.8                 3.5                             5                3 23.93                 9.35
+> 
+
+Function 2 - targetBMI()
+"The purpose of this function is to take in a numeric value, the user's target BMI, ie. the BMI they desire to achieve, and then searches through the data set to find members with a similar BMI and determines their workout routines. It does this by first setting an upper bounds of +-4 of the input BMI, narrowing the dataset to just include those observations. It then calculates the mean of the number of days they work out per week, the mean of how long each of those sessions are, the mean of how many hours the work out weekly, and finally, it creates a table showing a count of each workout type they do. This should provide a simple, text based overview of what members at their target BMI are doing for theiir schedule, which can help serve as a guide. In the below example, if the user wants a BMI of 21.75, it might be smart to consider working out at least 2 to 3 days with at least 1 hour sessions."
+Example Input: targetBMI()
+Output:
+[1] "Your inputted target BMI is 21.75"
+[1] "Below are stats for members with a similar BMI (+-4): "
+[1] "These are the types of workouts: "
+Workout_Type
+  Cardio     HIIT Strength     Yoga 
+     116      105      122      114 
+[1] "This is the average workout days per week: 2.4398249452954"
+[1] "This is the average session length (in hours): 1.29689277899344"
+[1] "This is the average weekly length (in hours): 4.69912472647702"
+
+Function 3 - exerciseGraphs()
+"The purpose of this function is to create two graphs user an inputted user variable plotted against BMI, to show the correlation between them. It takes two user inputs, one for the y axis that will be plotted against BMI, and another that will be used to color the points of the resulting scatterplot. The point_color variable with also be plotted on the x axis of a bar plot against BMI on the right, giving an enlarged, more specific view of how this variable relates to BMI. Both plots are made using ggplot, and displayed side by side using gridExtra. The scatterplot should provide a clear overview of the relationship between the input variable and BMI, further aided by the regression line that is overlayed on top. The colored points also help show the relationship of the second inut variable to both of the others, but for a more clear view the bar plot is provided to see the correlation between it, a factor variable, and the BMI."
+Example Input:
+exerciseGraphs()
+Output:
+The output will have to be achieved by running the code yourself, possibly in the vignette file, but it will result in two side by side graphs - one a scatterplot and the other a bar plot
+
+Function 4 - exerciseReg()
+"The purpose of this function is to get a detailed linear regression of an input variable predicting BMI. The basic lm function is used to create the initial model. A summary and overview of the multiple R-squared value are then both displayed, followed by a series of regression plots created by plot(). For a simple regression line plotted over a scatterplot, exerciseGraphs() can be used instead. This function will hopefully allow users to see which variables have an effect on BMI. For example, a user may wish to see a detailed breakdown of how their calories burned may effect their BMI, which could be helpful in determining a goal for calories burned to achieve a certain BMI. This directly builds off of the targetBMI function, as the user can first get a general overview of what routine other members are doing, get an idea of what they themselves might like to do, and then analyze it further through this function to see how exactly it's predicted to effect them and their BMI."
+Example Input: exerciseReg()
+Output:
+Call:
+lm(formula = BMI ~ x, data = data)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-12.7521  -4.7334  -0.7723   3.7650  24.9708 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 2.359e+01  7.400e-01  31.879   <2e-16 ***
+x           1.460e-03  7.826e-04   1.866   0.0624 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 6.652 on 971 degrees of freedom
+Multiple R-squared:  0.003571,	Adjusted R-squared:  0.002545 
+F-statistic:  3.48 on 1 and 971 DF,  p-value: 0.06241
+
+[1] "The multiple R-squared value is 0.00357135634135431. This value is the proportion of variance in the dependent variable, BMI, that is explained by the independent input variable."
+#Also in the output, but not included here, are 4 regression plots that should further enable detailed predictive analysis.
+
